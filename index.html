@@ -3,13 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Juegos Interactivos - Museos Nacionales COLOMBIA</title>
+<title>Convocatorias | Revista Explorando Arte y Cultura de Latinoamérica</title>
 
 <!-- Fuente -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
 
 <style>
-/* ESTILOS GENERALES */
 body {
   margin: 0;
   padding: 0;
@@ -88,7 +87,7 @@ body {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-/* HEADER */
+/* HEADER - debajo de las banderas */
 header {
   background-color: #000;
   padding: 2rem 1rem 1rem 1rem;
@@ -96,282 +95,108 @@ header {
   margin-top: 0;
 }
 header img {
-  max-width: 650px;
+  max-width: 550px;
   width: 100%;
   border-radius: 15px;
   box-shadow: 0 0 20px #fff;
   border: 2px solid #fff;
 }
 
-/* SEPARADOR */
-.separador {
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #fff, transparent);
-  margin: 0 auto 30px auto;
-  max-width: 800px;
-}
-
-/* CONTENIDO JUEGOS */
-.contenedor-juegos {
-  padding: 30px 20px;
-  text-align: center;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.titulo-principal {
-  color: white;
-  font-size: 32px;
-  margin-bottom: 20px;
-}
-
-.instrucciones {
-  background-color: #000;
-  color: #fff;
-  font-family: 'Segoe UI', sans-serif;
-  font-size: 14px;
-  max-width: 800px;
-  margin: 0 auto 40px auto;
-  padding: 20px;
-  border-radius: 10px;
-  border: 1px solid #666;
-}
-
-.instrucciones h3 {
-  text-align: center;
-  margin-top: 0;
-  color: #fff;
-  border-bottom: 1px solid #666;
-  padding-bottom: 10px;
-}
-
-/* CONTENEDOR DE BOTONES DE JUEGOS */
-#subMenu {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-  justify-content: center;
-  margin: 40px 0;
-}
-
-/* BOTONES DE JUEGOS */
-.image-toggle.small-btn {
-  cursor: pointer;
-  text-align: center;
-  transition: transform 0.3s ease;
-  width: 160px;
-}
-
-.image-toggle.small-btn:hover {
-  transform: scale(1.05);
-}
-
-.image-toggle.small-btn div {
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 0.9em;
-  margin-top: 8px;
-  color: #fff;
-}
-
-.image-toggle.small-btn img {
-  width: 140px;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  border: 2px solid #666;
-  transition: all 0.3s ease;
-}
-
-.image-toggle.small-btn:hover img {
-  border-color: #fff;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-}
-
-/* CONTENEDORES DE JUEGOS */
-.game-container {
-  margin: 40px auto;
-  max-width: 800px;
-  background-color: #111;
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 0 20px #00bfff;
-  border: 1px solid #666;
-}
-
-.hidden {
-  display: none !important;
-}
-
-/* ESPECÍFICOS PARA JUEGOS */
-
-/* Memorama */
-.board {
-  display: grid;
-  grid-template-columns: repeat(4, 120px);
-  grid-template-rows: repeat(3, 120px);
-  gap: 10px;
-  justify-content: center;
-  margin: 20px auto;
-}
-
-.card {
-  width: 120px;
-  height: 120px;
-  perspective: 1000px;
-  cursor: pointer;
-  position: relative;
-}
-
-.card .front,
-.card .back {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  backface-visibility: hidden;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.card .front {
-  transform: rotateY(180deg);
-}
-
-.card .back {
-  background: #333;
-  color: #fff;
-  font-weight: bold;
-  font-size: 24px;
-}
-
-.card.flipped .front {
-  transform: rotateY(0);
-}
-
-.card.flipped .back {
-  transform: rotateY(180deg);
-}
-
-.card.matched {
-  pointer-events: none;
-  opacity: 0.5;
-}
-
-/* Sopa de letras */
-#puzzle {
-  display: grid;
-  grid-template-columns: repeat(12, 30px);
-  justify-content: center;
-  gap: 4px;
-  margin: 20px 0;
-}
-
-.cell {
-  width: 30px;
-  height: 30px;
-  background-color: #1e1e1e;
-  color: #00ffcc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1em;
-  border: 1px solid #00bfff;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.cell.selected {
-  background-color: #004d4d;
-}
-
-.cell.found {
-  background-color: #00bfff;
-  color: #000;
-  font-weight: bold;
-}
-
-#wordlist {
-  margin-top: 20px;
-  font-size: 1.1em;
-  color: white;
-}
-
-/* Rompecabezas */
-#puzzle-wrapper {
-  width: 90vw;
-  max-width: 360px;
+/* CONTENIDO */
+.contenedor {
+  max-width: 950px;
   margin: auto;
+  padding: 30px;
 }
 
-#puzzle-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 4px;
-}
-
-.pieza {
-  border-radius: 6px;
-  box-shadow: 0 0 10px #0ff;
-  cursor: grab;
-}
-
-/* Ahorcado */
-#canvas {
-  background-color: #fff;
-  border-radius: 10px;
-}
-
-#wordDisplay {
-  font-size: 2em;
-  margin: 20px;
-  letter-spacing: 10px;
-}
-
-.keyboard {
+/* CONTENEDOR DE BOTONES SUPERIOR */
+.contenedor-botones-superior {
+  text-align: center;
   margin-bottom: 20px;
 }
 
-#message {
-  font-size: 1.3em;
-  font-weight: bold;
-  margin: 20px 0;
-  min-height: 30px;
-}
-
-/* Botones generales */
-button {
+/* BOTÓN ATRÁS CENTRADO */
+.boton-atras {
   background: #000;
   color: #fff;
-  border: 1px solid #fff;
-  padding: 10px 20px;
-  border-radius: 8px;
+  border: 2px solid #fff;
+  padding: 12px 25px;
+  border-radius: 10px;
   cursor: pointer;
-  margin: 10px;
+  font-weight: bold;
+  font-size: 16px;
   transition: all 0.3s ease;
+  margin-bottom: 20px;
+  display: inline-block;
+  text-decoration: none;
 }
 
-button:hover {
+.boton-atras:hover {
   background: #fff;
   color: #000;
-  box-shadow: 0 0 15px #fff;
+  box-shadow: 0 0 20px #fff;
+  transform: translateY(-3px);
 }
 
-/* FOOTER */
-footer {
-  background-color: #000000;
-  padding: 40px 20px;
-  color: #f1f1f1;
+/* FILA DE BOTONES DE CONVOCATORIAS */
+.fila-botones {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.boton-anio {
+  flex: 1;
   text-align: center;
-  border-top: 3px solid #ffffff;
-  font-size: 11px;
-  line-height: 1.6;
-  margin-top: 50px;
+  cursor: pointer;
+  background: #000;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #ffffff;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.boton-anio:hover {
+  box-shadow: 0 0 25px #ffffff;
+  transform: translateY(-3px);
+}
+
+.contenedor-convocatorias {
+  display: none;
+  text-align: center;
+  margin-top: 30px;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.imagen-boton {
+  max-width: 30%;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.imagen-boton:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(255,255,255,0.9);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @media (max-width: 768px) {
+  .fila-botones {
+    flex-direction: column;
+  }
+  .imagen-boton {
+    max-width: 80%;
+  }
   #flags-container {
     gap: 15px;
   }
@@ -386,24 +211,25 @@ footer {
   #flags .flag-label {
     font-size: 10px;
   }
-  .board {
-    grid-template-columns: repeat(4, 80px);
-    grid-template-rows: repeat(3, 80px);
-  }
-  .card {
-    width: 80px;
-    height: 80px;
-  }
-  #subMenu {
-    gap: 15px;
-  }
-  .image-toggle.small-btn {
-    width: 130px;
-  }
-  .image-toggle.small-btn img {
-    width: 110px;
-    height: 110px;
-  }
+}
+
+/* FOOTER */
+footer {
+  background-color: #000000;
+  padding: 40px 20px;
+  color: #f1f1f1;
+  text-align: center;
+  border-top: 3px solid #ffffff;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* Separador */
+.separador {
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+  margin: 0 auto 30px auto;
+  max-width: 800px;
 }
 </style>
 </head>
@@ -440,364 +266,178 @@ footer {
 <!-- SEPARADOR -->
 <div class="separador"></div>
 
-<!-- CONTENIDO PRINCIPAL -->
-<div class="contenedor-juegos">
-  <h1 class="titulo-principal" id="titulo-juegos">Juegos Interactivos</h1>
-  
-  <div class="instrucciones">
-    <h3 id="instrucciones-titulo">Instrucciones de uso</h3>
-    <p id="instrucciones-texto1">
-      Haz clic sobre una imagen para abrir el juego correspondiente. Puedes jugar libremente y volver a hacer clic sobre la imagen para cerrarlo.
-    </p>
-    <p id="instrucciones-texto2">
-      Solo puede estar un juego visible a la vez. Si deseas abrir otro, primero cierra el actual.
-    </p>
-  </div>
-  
-  <!-- MENÚ DE JUEGOS -->
-  <div id="subMenu">
-    
-    <!-- BOTÓN MEMORAMA -->
-    <div class="image-toggle small-btn" onclick="toggleSection('memoramaGame')">
-      <div id="btn-memorama-text">Memorama</div>
-      <img src="https://i.postimg.cc/J13jHPdQ/REVISTA-EXPLORANDO-MUSEOS-NACIONALES-DE-COLOMBIA-CON-YOBANA-OROZCO-BENAVIDES-EDICI-N-1-MUSEO-RAYO-T.jpg" alt="Memorama Museo Rayo">
-    </div>
+<!-- CONTENIDO CONVOCATORIAS -->
+<div class="contenedor">
 
-    <!-- BOTÓN SOPA DE LETRAS -->
-    <div class="image-toggle small-btn" onclick="toggleSection('boteroGame')">
-      <div id="btn-sopa-text">SOPA DE LETRAS</div>
-      <img src="https://i.postimg.cc/zXS6K19j/REVISTA-EXPLORANDO-MUSEOS-NACIONALES-DE-COLOMBIA-EDICION-2-VOL-2-YOBANA-OROZCO.png" alt="Sopa de Letras Botero">
-    </div>
-
-    <!-- BOTÓN ROMPECABEZAS -->
-    <div class="image-toggle small-btn" onclick="toggleSection('artLandGame'); setTimeout(crearPiezas, 100);">
-      <div id="btn-rompecabezas-text">ROMPECABEZA</div>
-      <img src="https://i.postimg.cc/3r5QM9hP/Aprendizaje-y-Creaci-n-en-el-Land-Art-Latinoamericano.jpg" alt="Rompecabezas Art Land">
-    </div>
-
-    <!-- BOTÓN AHORCADO 1 -->
-    <div class="image-toggle small-btn" onclick="toggleSection('ahorcadoGame'); setTimeout(initGame, 100);">
-      <div id="btn-ahorcado1-text">AHORCADO</div>
-      <img src="https://i.postimg.cc/9CH7mqB2/REVISTA-EXPLORANDO-MUSEOS-NACIONALES-DE-COLOMBIA-EDICION-3-VOL-1-YOBANA-OROZCO.jpg" alt="Ahorcado Museo Chatarra">
-    </div>
-    
-    <!-- BOTÓN SUDOKU -->
-    <div class="image-toggle small-btn" onclick="window.open('https://sudokujuegosmuseo.netlify.app/', '_blank')">
-      <div id="btn-sudoku-text">SUDOKU</div>
-      <img src="https://i.postimg.cc/kXPLnfQG/MUSEO-DEPAR-TAMEN-TAL-DE-CIENCIAS-NATURALES-1.jpg" alt="Sudoku Museo Ciencias">
-    </div>
-    
-    <!-- BOTÓN AHORCADO 2 -->
-    <div class="image-toggle small-btn" onclick="window.open('https://juegomuseoantropolgicout.netlify.app/', '_blank')">
-      <div id="btn-ahorcado2-text">AHORCADO</div>
-      <img src="https://i.postimg.cc/gjRGRRzm/Museo-Antropologico-UT-(8).jpg" alt="Ahorcado Museo Antropológico">
-    </div>
-
-    <!-- BOTÓN ROMPECABEZAS 2 -->
-    <div class="image-toggle small-btn" onclick="window.open('https://rostros-y-ra-ces-de-am-rica-latina.netlify.app/', '_blank')">
-      <div id="btn-rompecabezas2-text">ROMPECABEZAS</div>
-      <img src="https://i.postimg.cc/wvCtQBSN/Revista-Explorando-Arte-y-Cultura-de-Latinoam-rica-1-2025-4.png" alt="Rompecabezas Rostros y Raíces">
-    </div>
-
-    <!-- BOTÓN MEMORAMA 2 -->
-    <div class="image-toggle small-btn" onclick="window.open('https://memoramarevistaj-venescreadoresdelati.netlify.app/', '_blank')">
-      <div id="btn-memorama2-text">Memorama</div>
-      <img src="https://i.postimg.cc/Vvjdw2bG/Cover.jpg" alt="Memorama Jóvenes Creadores">
-    </div>
-    
+  <!-- CONTENEDOR PARA BOTÓN ATRÁS CENTRADO -->
+  <div class="contenedor-botones-superior">
+    <button class="boton-atras" onclick="window.location.href='https://explorandomuseosyartelatinoamericano.netlify.app/'">
+      <span id="texto-boton-atras">⬅ Atrás a Página Principal</span>
+    </button>
   </div>
 
-  <!-- JUEGO: MEMORAMA -->
-  <div id="memoramaGame" class="hidden game-container">
-    <h2 id="titulo-memorama">Memorama - Museo Omar Rayo</h2>
-    <p id="instrucciones-memorama">Haz clic en las cartas para encontrar las parejas de obras del maestro Omar Rayo.</p>
-    <div id="game-board" class="board"></div>
-    <div id="info" class="info-box"></div>
-    <button id="restartButton">🔄 <span id="texto-reiniciar">Reiniciar</span></button>
+  <!-- FILA DE BOTONES DE CONVOCATORIAS -->
+  <div class="fila-botones">
+    <div class="boton-anio" id="btn-2026" onclick="toggle2026()">Convocatorias 2026 🔽</div>
+    <div class="boton-anio" id="btn-2025" onclick="toggle2025()">Convocatorias 2025 🔽</div>
   </div>
 
-  <!-- JUEGO: SOPA DE LETRAS -->
-  <div id="boteroGame" class="hidden game-container">
-    <h2 id="titulo-sopa">SOPA DE LETRAS BOTERO</h2>
-    <div class="intro" style="text-align: left; color: white;">
-      <p id="intro-sopa1"><strong>Bienvenidos a la emocionante experiencia de explorar los museos nacionales de Colombia</strong> a través de nuestra sopa de letras <strong>Botero interactiva</strong>.</p>
-      <p id="intro-sopa2">Este juego te llevará a un viaje a través de las letras, mientras descubres nombres de artistas, obras de arte y conceptos relacionados con el <strong>Museo Botero</strong> y la rica historia cultural de Colombia.</p>
-      <p id="intro-sopa3"><strong>✨ CLIC Y COMIENZA LA AVENTURA</strong></p>
-      <p id="intro-sopa4"><em>Utiliza tu mouse, pantalla táctil o teclado para seleccionar las palabras. Puedes hacer clic en la primera letra.</em></p>
-    </div>
-
-    <div id="puzzle"></div>
-    <div id="wordlist" style="text-align: left;"></div>
-    <button onclick="startGame()">🔄 <span id="texto-reiniciar-sopa">Reiniciar</span></button>
+  <!-- 2026 -->
+  <div id="conv2026" class="contenedor-convocatorias" style="display:block;">
+    <a href="https://convocatoria-n-2-voces-que-habitan-el.netlify.app/" target="_blank">
+      <img src="https://i.postimg.cc/d1Y7ffmF/Chat-GPT-Image-8-ene-2026-11-18-29-a-m-YYTR.jpg"
+           class="imagen-boton" alt="Convocatoria 2026">
+    </a>
   </div>
 
-  <!-- JUEGO: ROMPECABEZAS -->
-  <div id="artLandGame" class="hidden game-container">
-    <h2 id="titulo-rompecabezas">Rompecabeza Museo Art Land</h2>
-    <p id="instrucciones-rompecabezas">
-      ¡Bienvenido al rompecabezas interactivo! Arrastra y suelta las piezas para armar la imagen completa.<br>
-      Cuando completes el rompecabezas, ¡aparecerá una carita feliz!<br>
-      Usa el botón para cambiar la imagen y seguir jugando.
-    </p>
+  <!-- 2025 -->
+  <div id="conv2025" class="contenedor-convocatorias">
+    <a href="https://convocatoria1arteculturalatina2025.netlify.app/" target="_blank">
+      <img src="https://i.postimg.cc/3wqj0TPL/Whats-App-Image-2025-06-27-at-9-2.png"
+           class="imagen-boton" alt="Convocatoria Arte y Cultura Latina 2025">
+    </a>
 
-    <div id="puzzle-wrapper" style="width: 90vw; max-width: 360px; margin: auto;">
-      <div id="puzzle-container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px;"></div>
-    </div>
+    <br><br>
 
-    <div id="mensaje" style="margin: 20px 0; color: #0f0; font-weight: bold;"></div>
-    <button id="btn-cambiar"><span id="texto-cambiar-imagen">Cambiar imagen</span></button>
+    <a href="https://convocatoriajuvenil2025.netlify.app/" target="_blank">
+      <img src="https://i.postimg.cc/QX2mL8fN/JHGF.png"
+           class="imagen-boton" alt="Convocatoria Juvenil 2025">
+    </a>
   </div>
 
-  <!-- JUEGO: AHORCADO -->
-  <div id="ahorcadoGame" class="hidden game-container">
-    <h2 id="titulo-ahorcado">Juego Ahorcado - Museo Mundo Chatarra</h2>
-    <p id="intro-ahorcado">
-      Bienvenido al juego del ahorcado más artístico y ecológico inspirado en el Museo Mundo Chatarra.
-      Este museo transforma la chatarra en esculturas que hablan de reciclaje, arte y conciencia ambiental. 
-      Adivina las palabras ocultas que representan este universo creativo, donde el hierro tiene alma y el arte ayuda a proteger el planeta. 
-      ¡Diviértete y aprende jugando!
-    </p>
-
-    <canvas id="canvas" width="200" height="250" style="background-color: #fff; border-radius: 10px;"></canvas>
-    <div id="wordDisplay" style="font-size: 2em; margin: 20px; letter-spacing: 10px;"></div>
-    <div class="keyboard" id="keyboard" style="margin-bottom: 20px;"></div>
-    <div id="message" style="font-size: 1.3em; font-weight: bold;"></div>
-    <button id="resetBtn" onclick="initGame()">🔁 <span id="texto-reiniciar-ahorcado">Reiniciar</span></button>
-  </div>
 </div>
 
 <!-- FOOTER COMPLETO -->
 <footer id="footer-content">
-  <h3 style="font-size:15px;" id="footer-title">© 2023 – 2026 | Explorando Museos y Arte Latinoamericano</h3>
-  
-  <p style="max-width:750px;margin:auto;" id="footer-description">
-    Proyecto educativo y cultural <strong id="footer-strong1">creado por Yobana Orozco Benavides</strong>.
-    Iniciado en 2023 como un trabajo universitario bajo el nombre
-    <em id="footer-em1">Explorando Museos Nacionales de Colombia</em>.
-    Desde 2025, el proyecto continúa y se consolida a través de la
-    <strong id="footer-strong2">Fundación Artes Multicap</strong> como
-    <strong id="footer-strong3">Explorando Museos y Arte Latinoamericano</strong>.
-  </p>
-  
-  <div style="margin-top:24px;">
-    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.es" target="_blank">
-      <img src="https://co.creativecommons.net/wp-content/uploads/sites/27/2008/02/by-nc.png" style="max-width:180px;" alt="Licencia Creative Commons">
-    </a>
-    
-    <p style="font-size:12px;" id="license-text">
-      Licencia Creative Commons Atribución–No Comercial 4.0 Internacional (CC BY-NC 4.0).
-      Se permite la consulta, descarga y difusión con reconocimiento de autoría, sin fines comerciales.
-    </p>
-  </div>
-  
-  <p style="margin-top:15px;" id="author-bio">
-    🌐 Bio autora:
-    <a href="https://yobanaorozcoartista.bio.link/" target="_blank" style="color:#00e6b8;">
-      yobanaorozcoartista.bio.link
-    </a>
-  </p>
-  
-  <div style="margin-top:20px;font-size:13px;">
-    <strong>Depósito Digital Legal:</strong> DD-034370 — Biblioteca Nacional de Colombia
-  </div>
+
+<h3 style="font-size:15px;" id="footer-title">© 2023 – 2026 | Explorando Museos y Arte Latinoamericano</h3>
+
+<p style="max-width:750px;margin:auto;" id="footer-description">
+Proyecto educativo y cultural <strong id="footer-strong1">creado por Yobana Orozco Benavides</strong>.
+Iniciado en 2023 como un trabajo universitario bajo el nombre
+<em id="footer-em1">Explorando Museos Nacionales de Colombia</em>.
+Desde 2025, el proyecto continúa y se consolida a través de la
+<strong id="footer-strong2">Fundación Artes Multicap</strong> como
+<strong id="footer-strong3">Explorando Museos y Arte Latinoamericano</strong>.
+</p>
+
+<div style="margin-top:24px;">
+<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.es" target="_blank">
+<img src="https://co.creativecommons.net/wp-content/uploads/sites/27/2008/02/by-nc.png" style="max-width:180px;" alt="Licencia Creative Commons">
+</a>
+
+<p style="font-size:12px;" id="license-text">
+Licencia Creative Commons Atribución–No Comercial 4.0 Internacional (CC BY-NC 4.0).
+Se permite la consulta, descarga y difusión con reconocimiento de autoría, sin fines comerciales.
+</p>
+</div>
+
+<p style="margin-top:15px;" id="author-bio">
+🌐 Bio autora:
+<a href="https://yobanaorozcoartista.bio.link/" target="_blank" style="color:#00e6b8;">
+yobanaorozcoartista.bio.link
+</a>
+</p>
+
+<div style="margin-top:20px;font-size:13px;">
+<strong>Depósito Digital Legal:</strong> DD-034370 — Biblioteca Nacional de Colombia
+</div>
+
+<!-- LOGOS COMPLETOS -->
+<div style="margin-top:20px;display:flex;flex-wrap:wrap;justify-content:center;gap:15px;align-items:center;">
+
+<img src="https://repository.ut.edu.co/assets/custom/images/logo-riut.png" style="height:48px;" alt="RIUT">
+<img src="https://revistas.uece.br/public/site/images/padua/google.png" style="height:48px;" alt="Google Scholar">
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Logo_StuDocu_Wikipedia.png" style="height:48px;" alt="StuDocu">
+<img src="https://segib.org/wp-content/uploads/2022/12/IberculturaViva-1-2048x684.jpg" style="height:48px;" alt="Ibercultura Viva">
+<img src="https://img.freepik.com/premium-vector/academia-logo_1088810-103.jpg" style="height:48px;" alt="Academia">
+
+<img src="https://i.postimg.cc/ZKWXhNwT/descarga-1.png" style="height:60px;" alt="Logo 1">
+<img src="https://i.postimg.cc/Vvf1RNwJ/descarga.png" style="height:60px;" alt="Logo 2">
+<img src="https://i.postimg.cc/0ywg7SSt/descarga-3.jpg" style="height:60px;" alt="Logo 3">
+<img src="https://i.postimg.cc/BnqYn1gL/doi-1.png" style="height:60px;" alt="DOI">
+<img src="https://i.postimg.cc/PxG1Ngj3/descarga-2.png" style="height:60px;" alt="Logo 4">
+<img src="https://i.postimg.cc/tC77Qr0Y/descarga-3.png" style="height:60px;" alt="Logo 5">
+<img src="https://i.postimg.cc/pVsy6w6w/descarga-4.png" style="height:60px;" alt="Logo 6">
+<img src="https://i.postimg.cc/5tkb3J0g/images.png" style="height:60px;" alt="Logo 7">
+<img src="https://i.postimg.cc/85W96grj/Captura-de-pantalla-2025-07-21-231633.png" style="height:60px;" alt="Logo 8">
+<img src="https://i.postimg.cc/wTWf3jbw/webofscience-logo-tm-rgb-color-0.jpg" style="height:60px;" alt="Web of Science">
+<img src="https://i.postimg.cc/TPxD6rqF/descarga-5.png" style="height:60px;" alt="Logo 9">
+
+</div>
+
 </footer>
 
-<!-- SCRIPTS PARA TRADUCCIÓN -->
+<!-- SCRIPTS -->
 <script>
 // Textos originales en español
 const originalTexts = {
-  'title': 'Juegos Interactivos - Museos Nacionales COLOMBIA',
-  'titulo-juegos': 'Juegos Interactivos',
-  'instrucciones-titulo': 'Instrucciones de uso',
-  'instrucciones-texto1': 'Haz clic sobre una imagen para abrir el juego correspondiente. Puedes jugar libremente y volver a hacer clic sobre la imagen para cerrarlo.',
-  'instrucciones-texto2': 'Solo puede estar un juego visible a la vez. Si deseas abrir otro, primero cierra el actual.',
-  
-  // Botones
-  'btn-memorama-text': 'Memorama',
-  'btn-sopa-text': 'SOPA DE LETRAS',
-  'btn-rompecabezas-text': 'ROMPECABEZA',
-  'btn-ahorcado1-text': 'AHORCADO',
-  'btn-sudoku-text': 'SUDOKU',
-  'btn-ahorcado2-text': 'AHORCADO',
-  'btn-rompecabezas2-text': 'ROMPECABEZAS',
-  'btn-memorama2-text': 'Memorama',
-  
-  // Juego Memorama
-  'titulo-memorama': 'Memorama - Museo Omar Rayo',
-  'instrucciones-memorama': 'Haz clic en las cartas para encontrar las parejas de obras del maestro Omar Rayo.',
-  'texto-reiniciar': 'Reiniciar',
-  
-  // Juego Sopa de Letras
-  'titulo-sopa': 'SOPA DE LETRAS BOTERO',
-  'intro-sopa1': 'Bienvenidos a la emocionante experiencia de explorar los museos nacionales de Colombia a través de nuestra sopa de letras Botero interactiva.',
-  'intro-sopa2': 'Este juego te llevará a un viaje a través de las letras, mientras descubres nombres de artistas, obras de arte y conceptos relacionados con el Museo Botero y la rica historia cultural de Colombia.',
-  'intro-sopa3': '✨ CLIC Y COMIENZA LA AVENTURA',
-  'intro-sopa4': 'Utiliza tu mouse, pantalla táctil o teclado para seleccionar las palabras. Puedes hacer clic en la primera letra.',
-  'texto-reiniciar-sopa': 'Reiniciar',
-  
-  // Juego Rompecabezas
-  'titulo-rompecabezas': 'Rompecabeza Museo Art Land',
-  'instrucciones-rompecabezas': '¡Bienvenido al rompecabezas interactivo! Arrastra y suelta las piezas para armar la imagen completa. Cuando completes el rompecabezas, ¡aparecerá una carita feliz! Usa el botón para cambiar la imagen y seguir jugando.',
-  'texto-cambiar-imagen': 'Cambiar imagen',
-  
-  // Juego Ahorcado
-  'titulo-ahorcado': 'Juego Ahorcado - Museo Mundo Chatarra',
-  'intro-ahorcado': 'Bienvenido al juego del ahorcado más artístico y ecológico inspirado en el Museo Mundo Chatarra. Este museo transforma la chatarra en esculturas que hablan de reciclaje, arte y conciencia ambiental. Adivina las palabras ocultas que representan este universo creativo, donde el hierro tiene alma y el arte ayuda a proteger el planeta. ¡Diviértete y aprende jugando!',
-  'texto-reiniciar-ahorcado': 'Reiniciar',
-  
-  // Footer
+  'title': 'Convocatorias | Revista Explorando Arte y Cultura de Latinoamérica',
+  'texto-boton-atras': '⬅ Atrás a Página Principal',
+  'btn-2026': 'Convocatorias 2026 🔽',
+  'btn-2025': 'Convocatorias 2025 🔽',
   'footer-title': '© 2023 – 2026 | Explorando Museos y Arte Latinoamericano',
   'footer-description': 'Proyecto educativo y cultural <strong>creado por Yobana Orozco Benavides</strong>. Iniciado en 2023 como un trabajo universitario bajo el nombre <em>Explorando Museos Nacionales de Colombia</em>. Desde 2025, el proyecto continúa y se consolida a través de la <strong>Fundación Artes Multicap</strong> como <strong>Explorando Museos y Arte Latinoamericano</strong>.',
   'license-text': 'Licencia Creative Commons Atribución–No Comercial 4.0 Internacional (CC BY-NC 4.0). Se permite la consulta, descarga y difusión con reconocimiento de autoría, sin fines comerciales.',
-  'author-bio': '🌐 Bio autora:'
+  'author-bio': '🌐 Bio autora:',
+  'footer-strong1': 'creado por Yobana Orozco Benavides',
+  'footer-em1': 'Explorando Museos Nacionales de Colombia',
+  'footer-strong2': 'Fundación Artes Multicap',
+  'footer-strong3': 'Explorando Museos y Arte Latinoamericano'
 };
 
 // Traducciones predefinidas
 const translations = {
   'es': {
-    'title': 'Juegos Interactivos - Museos Nacionales COLOMBIA',
-    'titulo-juegos': 'Juegos Interactivos',
-    'instrucciones-titulo': 'Instrucciones de uso',
-    'instrucciones-texto1': 'Haz clic sobre una imagen para abrir el juego correspondiente. Puedes jugar libremente y volver a hacer clic sobre la imagen para cerrarlo.',
-    'instrucciones-texto2': 'Solo puede estar un juego visible a la vez. Si deseas abrir otro, primero cierra el actual.',
-    'btn-memorama-text': 'Memorama',
-    'btn-sopa-text': 'SOPA DE LETRAS',
-    'btn-rompecabezas-text': 'ROMPECABEZA',
-    'btn-ahorcado1-text': 'AHORCADO',
-    'btn-sudoku-text': 'SUDOKU',
-    'btn-ahorcado2-text': 'AHORCADO',
-    'btn-rompecabezas2-text': 'ROMPECABEZAS',
-    'btn-memorama2-text': 'Memorama',
-    'titulo-memorama': 'Memorama - Museo Omar Rayo',
-    'instrucciones-memorama': 'Haz clic en las cartas para encontrar las parejas de obras del maestro Omar Rayo.',
-    'texto-reiniciar': 'Reiniciar',
-    'titulo-sopa': 'SOPA DE LETRAS BOTERO',
-    'intro-sopa1': 'Bienvenidos a la emocionante experiencia de explorar los museos nacionales de Colombia a través de nuestra sopa de letras Botero interactiva.',
-    'intro-sopa2': 'Este juego te llevará a un viaje a través de las letras, mientras descubres nombres de artistas, obras de arte y conceptos relacionados con el Museo Botero y la rica historia cultural de Colombia.',
-    'intro-sopa3': '✨ CLIC Y COMIENZA LA AVENTURA',
-    'intro-sopa4': 'Utiliza tu mouse, pantalla táctil o teclado para seleccionar las palabras. Puedes hacer clic en la primera letra.',
-    'texto-reiniciar-sopa': 'Reiniciar',
-    'titulo-rompecabezas': 'Rompecabeza Museo Art Land',
-    'instrucciones-rompecabezas': '¡Bienvenido al rompecabezas interactivo! Arrastra y suelta las piezas para armar la imagen completa. Cuando completes el rompecabezas, ¡aparecerá una carita feliz! Usa el botón para cambiar la imagen y seguir jugando.',
-    'texto-cambiar-imagen': 'Cambiar imagen',
-    'titulo-ahorcado': 'Juego Ahorcado - Museo Mundo Chatarra',
-    'intro-ahorcado': 'Bienvenido al juego del ahorcado más artístico y ecológico inspirado en el Museo Mundo Chatarra. Este museo transforma la chatarra en esculturas que hablan de reciclaje, arte y conciencia ambiental. Adivina las palabras ocultas que representan este universo creativo, donde el hierro tiene alma y el arte ayuda a proteger el planeta. ¡Diviértete y aprende jugando!',
-    'texto-reiniciar-ahorcado': 'Reiniciar',
+    'title': 'Convocatorias | Revista Explorando Arte y Cultura de Latinoamérica',
+    'texto-boton-atras': '⬅ Atrás a Página Principal',
+    'btn-2026': 'Convocatorias 2026 🔽',
+    'btn-2025': 'Convocatorias 2025 🔽',
     'footer-title': '© 2023 – 2026 | Explorando Museos y Arte Latinoamericano',
     'footer-description': 'Proyecto educativo y cultural <strong>creado por Yobana Orozco Benavides</strong>. Iniciado en 2023 como un trabajo universitario bajo el nombre <em>Explorando Museos Nacionales de Colombia</em>. Desde 2025, el proyecto continúa y se consolida a través de la <strong>Fundación Artes Multicap</strong> como <strong>Explorando Museos y Arte Latinoamericano</strong>.',
     'license-text': 'Licencia Creative Commons Atribución–No Comercial 4.0 Internacional (CC BY-NC 4.0). Se permite la consulta, descarga y difusión con reconocimiento de autoría, sin fines comerciales.',
     'author-bio': '🌐 Bio autora:'
   },
   'en': {
-    'title': 'Interactive Games - National Museums COLOMBIA',
-    'titulo-juegos': 'Interactive Games',
-    'instrucciones-titulo': 'Usage Instructions',
-    'instrucciones-texto1': 'Click on an image to open the corresponding game. You can play freely and click again on the image to close it.',
-    'instrucciones-texto2': 'Only one game can be visible at a time. If you want to open another, first close the current one.',
-    'btn-memorama-text': 'MEMORY GAME',
-    'btn-sopa-text': 'WORD SEARCH',
-    'btn-rompecabezas-text': 'PUZZLE',
-    'btn-ahorcado1-text': 'HANGMAN',
-    'btn-sudoku-text': 'SUDOKU',
-    'btn-ahorcado2-text': 'HANGMAN',
-    'btn-rompecabezas2-text': 'PUZZLE',
-    'btn-memorama2-text': 'MEMORY GAME',
-    'titulo-memorama': 'Memory Game - Omar Rayo Museum',
-    'instrucciones-memorama': 'Click on the cards to find pairs of works by master Omar Rayo.',
-    'texto-reiniciar': 'Restart',
-    'titulo-sopa': 'WORD SEARCH BOTERO',
-    'intro-sopa1': 'Welcome to the exciting experience of exploring Colombia\'s national museums through our interactive Botero word search.',
-    'intro-sopa2': 'This game will take you on a journey through letters, as you discover artists\' names, artworks, and concepts related to the Botero Museum and Colombia\'s rich cultural history.',
-    'intro-sopa3': '✨ CLICK AND START THE ADVENTURE',
-    'intro-sopa4': 'Use your mouse, touch screen, or keyboard to select words. You can click on the first letter.',
-    'texto-reiniciar-sopa': 'Restart',
-    'titulo-rompecabezas': 'Puzzle - Art Land Museum',
-    'instrucciones-rompecabezas': 'Welcome to the interactive puzzle! Drag and drop the pieces to complete the image. When you complete the puzzle, a happy face will appear! Use the button to change the image and keep playing.',
-    'texto-cambiar-imagen': 'Change image',
-    'titulo-ahorcado': 'Hangman Game - Scrap World Museum',
-    'intro-ahorcado': 'Welcome to the most artistic and ecological hangman game inspired by the Scrap World Museum. This museum transforms scrap into sculptures that speak of recycling, art, and environmental awareness. Guess the hidden words that represent this creative universe, where iron has soul and art helps protect the planet. Have fun and learn while playing!',
-    'texto-reiniciar-ahorcado': 'Restart',
+    'title': 'Calls for Submissions | Exploring Latin American Art and Culture Magazine',
+    'texto-boton-atras': '⬅ Back to Main Page',
+    'btn-2026': 'Calls 2026 🔽',
+    'btn-2025': 'Calls 2025 🔽',
     'footer-title': '© 2023 – 2026 | Exploring Museums and Latin American Art',
     'footer-description': 'Educational and cultural project <strong>created by Yobana Orozco Benavides</strong>. Started in 2023 as a university work under the name <em>Exploring National Museums of Colombia</em>. Since 2025, the project continues and consolidates through the <strong>Artes Multicap Foundation</strong> as <strong>Exploring Museums and Latin American Art</strong>.',
     'license-text': 'Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0). Consultation, download and dissemination are allowed with acknowledgment of authorship, for non-commercial purposes.',
     'author-bio': '🌐 Author bio:'
   },
   'fr': {
-    'title': 'Jeux Interactifs - Musées Nationaux COLOMBIE',
-    'titulo-juegos': 'Jeux Interactifs',
-    'instrucciones-titulo': 'Instructions d\'utilisation',
-    'instrucciones-texto1': 'Cliquez sur une image pour ouvrir le jeu correspondant. Vous pouvez jouer librement et cliquer à nouveau sur l\'image pour le fermer.',
-    'instrucciones-texto2': 'Un seul jeu peut être visible à la fois. Si vous souhaitez en ouvrir un autre, fermez d\'abord celui en cours.',
-    'btn-memorama-text': 'MÉMORY',
-    'btn-sopa-text': 'MOTS MÊLÉS',
-    'btn-rompecabezas-text': 'PUZZLE',
-    'btn-ahorcado1-text': 'PENDU',
-    'btn-sudoku-text': 'SUDOKU',
-    'btn-ahorcado2-text': 'PENDU',
-    'btn-rompecabezas2-text': 'PUZZLE',
-    'btn-memorama2-text': 'MÉMORY',
-    'titulo-memorama': 'Memory - Musée Omar Rayo',
-    'instrucciones-memorama': 'Cliquez sur les cartes pour trouver les paires d\'œuvres du maître Omar Rayo.',
-    'texto-reiniciar': 'Redémarrer',
-    'titulo-sopa': 'MOTS MÊLÉS BOTERO',
-    'intro-sopa1': 'Bienvenue à l\'expérience passionnante d\'explorer les musées nationaux de Colombie grâce à notre mots mêlés Botero interactif.',
-    'intro-sopa2': 'Ce jeu vous emmènera dans un voyage à travers les lettres, tandis que vous découvrez des noms d\'artistes, des œuvres d\'art et des concepts liés au Musée Botero et à la riche histoire culturelle de la Colombie.',
-    'intro-sopa3': '✨ CLIQUEZ ET COMMENCEZ L\'AVENTURE',
-    'intro-sopa4': 'Utilisez votre souris, écran tactile ou clavier pour sélectionner les mots. Vous pouvez cliquer sur la première lettre.',
-    'texto-reiniciar-sopa': 'Redémarrer',
-    'titulo-rompecabezas': 'Puzzle - Musée Art Land',
-    'instrucciones-rompecabezas': 'Bienvenue au puzzle interactif ! Faites glisser et déposez les pièces pour assembler l\'image complète. Lorsque vous terminerez le puzzle, un visage heureux apparaîtra ! Utilisez le bouton pour changer l\'image et continuer à jouer.',
-    'texto-cambiar-imagen': 'Changer l\'image',
-    'titulo-ahorcado': 'Jeu du Pendu - Musée Monde de la Ferraille',
-    'intro-ahorcado': 'Bienvenue au jeu du pendu le plus artistique et écologique inspiré par le Musée Monde de la Ferraille. Ce musée transforme la ferraille en sculptures qui parlent de recyclage, d\'art et de conscience environnementale. Devinez les mots cachés qui représentent cet univers créatif, où le fer a une âme et l\'art aide à protéger la planète. Amusez-vous et apprenez en jouant !',
-    'texto-reiniciar-ahorcado': 'Redémarrer',
+    'title': 'Appels à contributions | Revue Explorant l\'Art et la Culture d\'Amérique Latine',
+    'texto-boton-atras': '⬅ Retour à la Page Principale',
+    'btn-2026': 'Appels 2026 🔽',
+    'btn-2025': 'Appels 2025 🔽',
     'footer-title': '© 2023 – 2026 | Explorant les Musées et l\'Art Latino-américain',
     'footer-description': 'Projet éducatif et culturel <strong>créé par Yobana Orozco Benavides</strong>. Commencé en 2023 comme un travail universitaire sous le nom <em>Explorant les Musées Nationaux de Colombie</em>. Depuis 2025, le projet continue et se consolide à travers la <strong>Fondation Artes Multicap</strong> en tant que <strong>Explorant les Musées et l\'Art Latino-américain</strong>.',
     'license-text': 'Licence Creative Commons Attribution - Pas d\'Utilisation Commerciale 4.0 International (CC BY-NC 4.0). Consultation, téléchargement et diffusion autorisés avec mention de paternité, à des fins non commerciales.',
     'author-bio': '🌐 Bio de l\'auteure :'
   },
   'pt': {
-    'title': 'Jogos Interativos - Museus Nacionais COLÔMBIA',
-    'titulo-juegos': 'Jogos Interativos',
-    'instrucciones-titulo': 'Instruções de uso',
-    'instrucciones-texto1': 'Clique em uma imagem para abrir o jogo correspondente. Você pode jogar livremente e clicar novamente na imagem para fechá-lo.',
-    'instrucciones-texto2': 'Apenas um jogo pode estar visível por vez. Se desejar abrir outro, primeiro feche o atual.',
-    'btn-memorama-text': 'MEMÓRIA',
-    'btn-sopa-text': 'CAÇA-PALAVRAS',
-    'btn-rompecabezas-text': 'QUEBRA-CABEÇA',
-    'btn-ahorcado1-text': 'FORCA',
-    'btn-sudoku-text': 'SUDOKU',
-    'btn-ahorcado2-text': 'FORCA',
-    'btn-rompecabezas2-text': 'QUEBRA-CABEÇA',
-    'btn-memorama2-text': 'MEMÓRIA',
-    'titulo-memorama': 'Jogo da Memória - Museu Omar Rayo',
-    'instrucciones-memorama': 'Clique nas cartas para encontrar os pares de obras do mestre Omar Rayo.',
-    'texto-reiniciar': 'Reiniciar',
-    'titulo-sopa': 'CAÇA-PALAVRAS BOTERO',
-    'intro-sopa1': 'Bem-vindo à emocionante experiência de explorar os museus nacionais da Colômbia através do nosso caça-palavras Botero interativo.',
-    'intro-sopa2': 'Este jogo levará você em uma jornada através das letras, enquanto descobre nomes de artistas, obras de arte e conceitos relacionados ao Museu Botero e à rica história cultural da Colômbia.',
-    'intro-sopa3': '✨ CLIQUE E COMECE A AVENTURA',
-    'intro-sopa4': 'Use seu mouse, tela sensível ao toque ou teclado para selecionar as palavras. Você pode clicar na primeira letra.',
-    'texto-reiniciar-sopa': 'Reiniciar',
-    'titulo-rompecabezas': 'Quebra-cabeça - Museu Art Land',
-    'instrucciones-rompecabezas': 'Bem-vindo ao quebra-cabeça interativo! Arraste e solte as peças para montar a imagem completa. Quando você completar o quebra-cabeça, aparecerá um rosto feliz! Use o botão para mudar a imagem e continuar jogando.',
-    'texto-cambiar-imagen': 'Mudar imagem',
-    'titulo-ahorcado': 'Jogo da Forca - Museu Mundo Sucata',
-    'intro-ahorcado': 'Bem-vindo ao jogo da forca mais artístico e ecológico inspirado no Museu Mundo Sucata. Este museu transforma sucata em esculturas que falam de reciclagem, arte e consciência ambiental. Adivinhe as palavras ocultas que representam este universo criativo, onde o ferro tem alma e a arte ajuda a proteger o planeta. Divirta-se e aprenda jogando!',
-    'texto-reiniciar-ahorcado': 'Reiniciar',
+    'title': 'Chamadas | Revista Explorando Arte e Cultura da América Latina',
+    'texto-boton-atras': '⬅ Voltar à Página Principal',
+    'btn-2026': 'Chamadas 2026 🔽',
+    'btn-2025': 'Chamadas 2025 🔽',
     'footer-title': '© 2023 – 2026 | Explorando Museus e Arte Latino-americana',
     'footer-description': 'Projeto educativo e cultural <strong>criado por Yobana Orozco Benavides</strong>. Iniciado em 2023 como um trabalho universitário sob o nome <em>Explorando Museus Nacionais da Colômbia</em>. Desde 2025, o projeto continua e se consolida através da <strong>Fundação Artes Multicap</strong> como <strong>Explorando Museus e Arte Latino-americana</strong>.',
-    'license-text': 'Licença Creative Commons Atribuição-NãoComercial 4.0 Internacional (CC BY-NC 4.0). Permite-se consulta, download e difusão com reconhecimento de autoria, sem fins comerciais.',
+    'license-text': 'Licença Creative Commons Atribuição-NãoComercial 4.0 Internacional (CC BY-NC 4.0). Permite-se consulta, download e difusão com reconhecimento de autoria, sem fins comerciales.',
     'author-bio': '🌐 Bio da autora:'
   }
 };
 
 // Función para actualizar botón activo
 function setActiveFlag(language) {
+  // Remover clase active de todas las banderas
   document.querySelectorAll('#flags button').forEach(btn => {
     btn.classList.remove('active');
   });
   
+  // Agregar clase active a la bandera correspondiente
   const flagId = `flag-${language}`;
   const flagButton = document.getElementById(flagId);
   if (flagButton) {
@@ -813,17 +453,18 @@ function translatePage(language) {
   // Actualizar título de la página
   document.title = translations[language]['title'];
   
-  // Traducir todos los elementos con ID
-  for (const key in translations[language]) {
-    const element = document.getElementById(key);
-    if (element) {
-      if (key === 'footer-description') {
-        element.innerHTML = translations[language][key];
-      } else {
-        element.textContent = translations[language][key];
-      }
-    }
-  }
+  // Traducir botón atrás
+  document.getElementById('texto-boton-atras').textContent = translations[language]['texto-boton-atras'];
+  
+  // Traducir botones de convocatorias
+  document.getElementById('btn-2026').textContent = translations[language]['btn-2026'];
+  document.getElementById('btn-2025').textContent = translations[language]['btn-2025'];
+  
+  // Traducir elementos del footer
+  document.getElementById('footer-title').innerHTML = translations[language]['footer-title'];
+  document.getElementById('footer-description').innerHTML = translations[language]['footer-description'];
+  document.getElementById('license-text').textContent = translations[language]['license-text'];
+  document.getElementById('author-bio').innerHTML = translations[language]['author-bio'];
   
   // Guardar preferencia de idioma
   localStorage.setItem('preferred-language', language);
@@ -846,463 +487,24 @@ function translateToPortuguese() {
   translatePage('pt');
 }
 
-// Funciones para mostrar/ocultar juegos
-function toggleSection(id) {
-  // Ocultar todos los juegos
-  document.querySelectorAll('.game-container').forEach(game => {
-    if (game.id !== id) {
-      game.classList.add('hidden');
-    }
-  });
-  
-  // Mostrar/ocultar el juego seleccionado
-  const el = document.getElementById(id);
-  el.classList.toggle('hidden');
+// Funciones para mostrar/ocultar convocatorias
+function toggle2025() {
+  document.getElementById("conv2026").style.display = "none";
+  const a = document.getElementById("conv2025");
+  a.style.display = (a.style.display === "block") ? "none" : "block";
+}
+
+function toggle2026() {
+  document.getElementById("conv2025").style.display = "none";
+  const b = document.getElementById("conv2026");
+  b.style.display = (b.style.display === "block") ? "none" : "block";
 }
 
 // Cargar idioma preferido al iniciar
 document.addEventListener('DOMContentLoaded', function() {
   const savedLanguage = localStorage.getItem('preferred-language') || 'es';
   translatePage(savedLanguage);
-  
-  // Inicializar juegos
-  initMemorama();
-  initSopaLetras();
-  initRompecabezas();
-  initAhorcado();
 });
-</script>
-
-<!-- SCRIPTS PARA LOS JUEGOS -->
-<script>
-// JUEGO MEMORAMA
-const cardsData = [
-  { img: 'https://i.postimg.cc/2CPFn4Xy/arte1.jpg', info: 'Obra 1: "Mariposa" por Omar Rayo.' },
-  { img: 'https://i.postimg.cc/sjzYN3zR/arte2.jpg', info: 'Obra 2: "Geometría" por Omar Rayo.' },
-  { img: 'https://i.postimg.cc/dqrR6LzB/arte3.jpg', info: 'Obra 3: "Foto" de Omar Rayo.' },
-  { img: 'https://i.postimg.cc/SSG60HQY/arte4.jpg', info: 'Obra 4: "Entrada al museo" de Omar Rayo.' },
-  { img: 'https://i.postimg.cc/pWb4dZcx/rbol-Omar-Rayo.jpg', info: 'Obra 5: "Árbol de la vida" por Omar Rayo.' },
-  { img: 'https://i.postimg.cc/QX2GTst2/Intaglio.jpg', info: 'Obra 6: "Intaglio" por Omar Rayo.' }
-];
-
-function initMemorama() {
-  const gameBoard = document.getElementById('game-board');
-  const infoBox = document.getElementById('info');
-  const restartButton = document.getElementById('restartButton');
-  
-  let firstCard = null;
-  let lockBoard = false;
-
-  function createCardElement(cardData, index) {
-    const card = document.createElement('div');
-    card.classList.add('card');
-    card.dataset.index = index;
-    card.dataset.info = cardData.info;
-
-    const front = document.createElement('img');
-    front.src = cardData.img;
-    front.classList.add('front');
-
-    const back = document.createElement('div');
-    back.classList.add('back');
-    back.textContent = '?';
-
-    card.appendChild(front);
-    card.appendChild(back);
-    card.addEventListener('click', flipCard);
-    return card;
-  }
-
-  function flipCard() {
-    if (lockBoard || this.classList.contains('matched') || this.classList.contains('flipped')) return;
-
-    this.classList.add('flipped');
-
-    if (!firstCard) {
-      firstCard = this;
-      return;
-    }
-
-    const secondCard = this;
-    const firstImage = firstCard.querySelector('.front').src;
-    const secondImage = secondCard.querySelector('.front').src;
-
-    if (firstImage === secondImage) {
-      firstCard.classList.add('matched');
-      secondCard.classList.add('matched');
-      infoBox.textContent = secondCard.dataset.info;
-      firstCard = null;
-    } else {
-      lockBoard = true;
-      setTimeout(() => {
-        firstCard.classList.remove('flipped');
-        secondCard.classList.remove('flipped');
-        firstCard = null;
-        lockBoard = false;
-      }, 1000);
-    }
-  }
-
-  function initGame() {
-    gameBoard.innerHTML = '';
-    infoBox.textContent = '';
-    firstCard = null;
-    lockBoard = false;
-
-    const doubledCards = [...cardsData, ...cardsData];
-    const shuffled = doubledCards.sort(() => Math.random() - 0.5);
-
-    shuffled.forEach((cardData, index) => {
-      const cardElement = createCardElement(cardData, index);
-      gameBoard.appendChild(cardElement);
-    });
-  }
-
-  restartButton.addEventListener('click', initGame);
-  initGame();
-}
-
-// JUEGO SOPA DE LETRAS
-const originalWords = ["BOTERO", "ARTE", "COLOMBIA", "PINTURA", "ESCULTURA", "CULTURA", "MUSEO", "MONA", "GORDAS", "REALISMO"];
-let words = [...originalWords];
-const gridSize = 12;
-let puzzle = [];
-
-function initSopaLetras() {
-  const restartBtn = document.querySelector('#boteroGame button');
-  if (restartBtn) {
-    restartBtn.onclick = startGame;
-  }
-  startGame();
-}
-
-function createEmptyGrid() {
-  return Array.from({ length: gridSize }, () => Array.from({ length: gridSize }, () => ""));
-}
-
-function canPlaceWord(word, row, col, dir, grid) {
-  for (let i = 0; i < word.length; i++) {
-    let r = row, c = col;
-    if (dir === 0) c += i;
-    if (dir === 1) r += i;
-    if (dir === 2) { r += i; c += i; }
-    if (dir === 3) { r -= i; c += i; }
-    if (r < 0 || r >= gridSize || c < 0 || c >= gridSize || (grid[r][c] && grid[r][c] !== word[i])) {
-      return false;
-    }
-  }
-  return true;
-}
-
-function placeWordsInGrid(grid, words) {
-  words.forEach(word => {
-    let placed = false;
-    while (!placed) {
-      const dir = Math.floor(Math.random() * 4);
-      const row = Math.floor(Math.random() * gridSize);
-      const col = Math.floor(Math.random() * gridSize);
-      if (canPlaceWord(word, row, col, dir, grid)) {
-        for (let i = 0; i < word.length; i++) {
-          let r = row, c = col;
-          if (dir === 0) c += i;
-          if (dir === 1) r += i;
-          if (dir === 2) { r += i; c += i; }
-          if (dir === 3) { r -= i; c += i; }
-          grid[r][c] = word[i];
-        }
-        placed = true;
-      }
-    }
-  });
-}
-
-function fillGridWithRandomLetters(grid) {
-  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  for (let r = 0; r < gridSize; r++) {
-    for (let c = 0; c < gridSize; c++) {
-      if (!grid[r][c]) {
-        grid[r][c] = letters[Math.floor(Math.random() * letters.length)];
-      }
-    }
-  }
-}
-
-function renderGrid(grid) {
-  const puzzleDiv = document.getElementById("puzzle");
-  puzzleDiv.innerHTML = "";
-  grid.forEach((row, r) => {
-    row.forEach((cell, c) => {
-      const div = document.createElement("div");
-      div.classList.add("cell");
-      div.textContent = cell;
-      div.dataset.row = r;
-      div.dataset.col = c;
-      div.addEventListener("click", () => selectCell(div));
-      puzzleDiv.appendChild(div);
-    });
-  });
-}
-
-let selection = [];
-
-function selectCell(cell) {
-  cell.classList.toggle("selected");
-  const row = +cell.dataset.row;
-  const col = +cell.dataset.col;
-  const index = selection.findIndex(pos => pos.row === row && pos.col === col);
-  if (index > -1) {
-    selection.splice(index, 1);
-  } else {
-    selection.push({ row, col, letter: cell.textContent });
-  }
-  checkSelection();
-}
-
-function checkSelection() {
-  const selectedWord = selection.map(cell => cell.letter).join("");
-  const reversed = selectedWord.split("").reverse().join("");
-
-  if (words.includes(selectedWord) || words.includes(reversed)) {
-    selection.forEach(cell => {
-      const div = document.querySelector(`.cell[data-row='${cell.row}'][data-col='${cell.col}']`);
-      div.classList.remove("selected");
-      div.classList.add("found");
-    });
-
-    const matched = selectedWord.length > 1 ? selectedWord : reversed;
-    const listItem = document.querySelector(`.word-item[data-word="${matched}"]`);
-    if (listItem) listItem.classList.add('checked');
-
-    words = words.filter(w => w !== selectedWord && w !== reversed);
-  }
-  updateWordList();
-  selection = [];
-}
-
-function updateWordList() {
-  const list = document.getElementById("wordlist");
-  list.innerHTML = "<strong>🔍 Palabras por encontrar:</strong><br><ul>";
-  originalWords.forEach(word => {
-    list.innerHTML += `<li class="word-item" data-word="${word}"><span class="box" onclick="this.textContent = this.textContent === '✅' ? '☐' : '✅'">☐</span> ${word}</li>`;
-  });
-  list.innerHTML += "</ul>";
-}
-
-function startGame() {
-  selection = [];
-  words = [...originalWords];
-  puzzle = createEmptyGrid();
-  placeWordsInGrid(puzzle, [...words]);
-  fillGridWithRandomLetters(puzzle);
-  renderGrid(puzzle);
-  updateWordList();
-}
-
-// JUEGO ROMPECABEZAS
-const imagenes = [
-  'https://i.postimg.cc/gkhPLscJ/Aprendizaje-y-Creaci-n-en-el-Land-Art-Latinoamericano.png',
-  'https://i.postimg.cc/RhkhQ0nn/Aprendizaje-y-Creaci-n-en-el-Land-Art-Latinoamericano-1.png',
-  'https://i.postimg.cc/YqxhZYZd/Aprendizaje-y-Creaci-n-en-el-Land-Art-Latinoamericano-2.png'
-];
-
-const filas = 4, columnas = 4, totalPiezas = filas * columnas;
-let imagenActualIndex = 0;
-
-function initRompecabezas() {
-  const btnCambiar = document.getElementById('btn-cambiar');
-  if (btnCambiar) {
-    btnCambiar.addEventListener('click', () => {
-      imagenActualIndex = (imagenActualIndex + 1) % imagenes.length;
-      crearPiezas();
-    });
-  }
-  crearPiezas();
-}
-
-function crearPiezas() {
-  const puzzleContainer = document.getElementById('puzzle-container');
-  const mensaje = document.getElementById('mensaje');
-  
-  puzzleContainer.innerHTML = '';
-  mensaje.textContent = '';
-
-  const containerSize = puzzleContainer.offsetWidth;
-  const tamañoPieza = containerSize / columnas;
-
-  const piezas = [];
-  for (let i = 0; i < totalPiezas; i++) {
-    const pieza = document.createElement('div');
-    pieza.setAttribute('draggable', true);
-    pieza.style.width = `${tamañoPieza}px`;
-    pieza.style.height = `${tamañoPieza}px`;
-    pieza.style.backgroundImage = `url(${imagenes[imagenActualIndex]})`;
-    pieza.style.backgroundSize = `${containerSize}px ${containerSize}px`;
-    pieza.style.backgroundPosition = `-${(i % columnas) * tamañoPieza}px -${Math.floor(i / columnas) * tamañoPieza}px`;
-    pieza.style.borderRadius = '6px';
-    pieza.style.boxShadow = '0 0 10px #0ff';
-    pieza.style.cursor = 'grab';
-    pieza.classList.add('pieza');
-    pieza.dataset.posOriginal = i;
-    piezas.push(pieza);
-  }
-
-  const posicionesMezcladas = mezclarArray([...Array(totalPiezas).keys()]);
-  posicionesMezcladas.forEach((mezclada, index) => {
-    const pieza = piezas[mezclada];
-    puzzleContainer.appendChild(pieza);
-    pieza.dataset.posActual = index;
-  });
-
-  agregarDragAndDrop();
-}
-
-function mezclarArray(arr) {
-  return arr.sort(() => Math.random() - 0.5);
-}
-
-function agregarDragAndDrop() {
-  let piezaArrastrada = null;
-  const piezas = document.querySelectorAll('.pieza');
-
-  piezas.forEach(pieza => {
-    pieza.addEventListener('dragstart', () => {
-      piezaArrastrada = pieza;
-      pieza.classList.add('dragging');
-    });
-
-    pieza.addEventListener('dragend', () => {
-      pieza.classList.remove('dragging');
-      piezaArrastrada = null;
-      chequearPuzzle();
-    });
-
-    pieza.addEventListener('dragover', e => e.preventDefault());
-
-    pieza.addEventListener('drop', e => {
-      e.preventDefault();
-      if (piezaArrastrada && pieza !== piezaArrastrada) {
-        const nodo1 = piezaArrastrada.nextSibling === pieza ? piezaArrastrada : piezaArrastrada.nextSibling;
-        const puzzleContainer = document.getElementById('puzzle-container');
-        puzzleContainer.insertBefore(piezaArrastrada, pieza);
-        puzzleContainer.insertBefore(pieza, nodo1);
-        Array.from(puzzleContainer.children).forEach((p, i) => p.dataset.posActual = i);
-      }
-    });
-  });
-}
-
-function chequearPuzzle() {
-  const puzzleContainer = document.getElementById('puzzle-container');
-  const mensaje = document.getElementById('mensaje');
-  const hijos = Array.from(puzzleContainer.children);
-  const armado = hijos.every((pieza, i) => parseInt(pieza.dataset.posOriginal) === i);
-  if (armado) {
-    mensaje.textContent = '🎉 ¡Felicidades! Rompecabezas armado correctamente 😊';
-  }
-}
-
-// JUEGO AHORCADO
-const palabras = [
-  "QUIJOTE", "DULCINEA", "SANCHO", "CHATARRA", "ESCULTURA",
-  "RECICLAJE", "PINOCCHIO", "MECANICA", "SOSTENIBILIDAD",
-  "ARTE", "FUTURO", "PLANETA", "ENGRANAJE"
-];
-
-let palabra = "";
-let aciertos = [];
-let errores = [];
-const maxErrores = 6;
-
-function initAhorcado() {
-  const resetBtn = document.getElementById('resetBtn');
-  if (resetBtn) {
-    resetBtn.onclick = initGame;
-  }
-  initGame();
-}
-
-function dibujarBase() {
-  const canvas = document.getElementById("canvas");
-  const ctx = canvas.getContext("2d");
-  
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.lineWidth = 2;
-  ctx.strokeStyle = "#2c3e50";
-  ctx.beginPath();
-  ctx.moveTo(10, 240); ctx.lineTo(190, 240); // base
-  ctx.moveTo(50, 240); ctx.lineTo(50, 20);   // palo vertical
-  ctx.lineTo(130, 20);                       // horizontal superior
-  ctx.lineTo(130, 40);                       // colgante
-  ctx.stroke();
-}
-
-function dibujarParte(errores) {
-  const canvas = document.getElementById("canvas");
-  const ctx = canvas.getContext("2d");
-  
-  ctx.strokeStyle = "#2c3e50";
-  ctx.beginPath();
-  switch (errores) {
-    case 1: ctx.arc(130, 60, 20, 0, Math.PI * 2); break; // cabeza
-    case 2: ctx.moveTo(130, 80); ctx.lineTo(130, 140); break; // tronco
-    case 3: ctx.moveTo(130, 100); ctx.lineTo(100, 120); break; // brazo izq
-    case 4: ctx.moveTo(130, 100); ctx.lineTo(160, 120); break; // brazo der
-    case 5: ctx.moveTo(130, 140); ctx.lineTo(110, 180); break; // pierna izq
-    case 6: ctx.moveTo(130, 140); ctx.lineTo(150, 180); break; // pierna der
-  }
-  ctx.stroke();
-}
-
-function mostrarPalabra() {
-  const display = palabra.split('').map(letra => aciertos.includes(letra) ? letra : '_').join(' ');
-  document.getElementById("wordDisplay").textContent = display;
-  if (!display.includes("_")) {
-    document.getElementById("message").textContent = "🎉 ¡Ganaste!";
-    desactivarTeclado();
-  }
-}
-
-function manejarLetra(letra, btn) {
-  btn.disabled = true;
-  if (palabra.includes(letra)) {
-    aciertos.push(letra);
-    mostrarPalabra();
-  } else {
-    errores.push(letra);
-    dibujarParte(errores.length);
-    if (errores.length === maxErrores) {
-      document.getElementById("message").textContent = `💀 ¡Perdiste! La palabra era: ${palabra}`;
-      desactivarTeclado();
-    }
-  }
-}
-
-function crearTeclado() {
-  const letras = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
-  const tecladoDiv = document.getElementById("keyboard");
-  tecladoDiv.innerHTML = "";
-  letras.split("").forEach(letra => {
-    const btn = document.createElement("button");
-    btn.textContent = letra;
-    btn.onclick = () => manejarLetra(letra, btn);
-    btn.style.margin = "4px";
-    tecladoDiv.appendChild(btn);
-  });
-}
-
-function desactivarTeclado() {
-  document.querySelectorAll('#keyboard button').forEach(b => b.disabled = true);
-}
-
-function initGame() {
-  palabra = palabras[Math.floor(Math.random() * palabras.length)];
-  aciertos = [];
-  errores = [];
-  document.getElementById("message").textContent = "";
-  dibujarBase();
-  mostrarPalabra();
-  crearTeclado();
-}
 </script>
 
 </body>
