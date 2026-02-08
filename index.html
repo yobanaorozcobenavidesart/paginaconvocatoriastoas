@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convocatorias | Revista Explorando Arte y Cultura de Latinoamérica</title>
+
+<!-- Fuente -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+/* BANDERAS ESTÁTICAS EN LA PARTE SUPERIOR */
+#flags {
+  background: #000;
+  border-bottom: 3px solid #fff;
+  padding: 15px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  width: 100%;
+}
+
+#flags-container {
+  display: inline-flex;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+#flags button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 70px;
+}
+
+#flags button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+#flags button.active {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+#flags .flag-label {
+  color: white;
+  font-size: 11px;
+  margin-top: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#flags img {
+  width: 36px;
+  height: 27px;
+  border-radius: 4px;
+  border: 1px solid #666;
+  transition: all 0.3s ease;
+}
+
+#flags button:hover img {
+  transform: scale(1.1);
+  border-color: #fff;
+}
+
+#flags button.active img {
+  border-color: #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* HEADER - debajo de las banderas */
+header {
+  background-color: #000;
+  padding: 2rem 1rem 1rem 1rem;
+  text-align: center;
+  margin-top: 0;
+}
+header img {
+  max-width: 550px;
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #fff;
+  border: 2px solid #fff;
+}
+
+/* CONTENIDO */
+.contenedor {
+  max-width: 950px;
+  margin: auto;
+  padding: 30px;
+}
+
+.fila-botones {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.boton-anio {
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+  background: #000;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #ffffff;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.boton-anio:hover {
+  box-shadow: 0 0 25px #ffffff;
+  transform: translateY(-3px);
+}
+
+.contenedor-convocatorias {
+  display: none;
+  text-align: center;
+  margin-top: 30px;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.imagen-boton {
+  max-width: 30%;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.imagen-boton:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(255,255,255,0.9);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .fila-botones {
+    flex-direction: column;
+  }
+  .imagen-boton {
+    max-width: 80%;
+  }
+  #flags-container {
+    gap: 15px;
+  }
+  #flags button {
+    min-width: 60px;
+    padding: 6px;
+  }
+  #flags img {
+    width: 30px;
+    height: 22px;
+  }
+  #flags .flag-label {
+    font-size: 10px;
+  }
+}
+
+/* FOOTER */
+footer {
+  background-color: #000000;
+  padding: 40px 20px;
+  color: #f1f1f1;
+  text-align: center;
+  border-top: 3px solid #ffffff;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* Separador */
+.separador {
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+  margin: 0 auto 30px auto;
+  max-width: 800px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- BANDERAS ESTÁTICAS EN LA PARTE SUPERIOR -->
+<div id="flags">
+  <div id="flags-container">
+    <button id="flag-es" class="active" onclick="translateToSpanish()">
+      <img src="https://flagcdn.com/w40/es.png" alt="Español">
+      <div class="flag-label">Español</div>
+    </button>
+    <button id="flag-en" onclick="translateToEnglish()">
+      <img src="https://flagcdn.com/w40/gb.png" alt="Inglés">
+      <div class="flag-label">English</div>
+    </button>
+    <button id="flag-fr" onclick="translateToFrench()">
+      <img src="https://flagcdn.com/w40/fr.png" alt="Francés">
+      <div class="flag-label">Français</div>
+    </button>
+    <button id="flag-pt" onclick="translateToPortuguese()">
+      <img src="https://flagcdn.com/w40/br.png" alt="Portugués">
+      <div class="flag-label">Português</div>
+    </button>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <img src="https://i.postimg.cc/4NjxHQ4y/Whats-App-Image-2025-06-27-at-9.jpg" alt="Logo Revista">
+</header>
+
+<!-- SEPARADOR -->
+<div class="separador"></div>
+
+<!-- CONTENIDO CONVOCATORIAS -->
+<div class="contenedor">
+
+  <div class="fila-botones">
+    <div class="boton-anio" id="btn-2026" onclick="toggle2026()">Convocatorias 2026 🔽</div>
+    <div class="boton-anio" id="btn-2025" onclick="toggle2025()">Convocatorias 2025 🔽</div>
+  </div>
+
+  <!-- 2026 -->
+  <div id="conv2026" class="contenedor-convocatorias" style="display:block;">
+    <a href="https://convocatoria-n-2-voces-que-habitan-el.netlify.app/" target="_blank">
+      <img src="https://i.postimg.cc/d1Y7ffmF/Chat-GPT-Image-8-ene-2026-11-18-29-a-m-YYTR.jpg"
+           class="imagen-boton" alt="Convocatoria 2026">
+    </a>
+  </div>
+
+  <!-- 2025 -->
+  <div id="conv2025" class="contenedor-convocatorias">
+    <a href="https://convocatoria1arteculturalatina2025.netlify.app/" target="_blank">
+      <img src="https://i.postimg.cc/3wqj0TPL/Whats-App-Image-2025-06-27-at-9-2.png"
+           class="imagen-boton" alt="Convocatoria Arte y Cultura Latina 2025">
+    </a>
+
+    <br><br>
+
+    <a href="https://convocatoriajuvenil2025.netlify.app/" target="_blank">
+      <img src="https://i.postimg.cc/QX2mL8fN/JHGF.png"
+           class="imagen-boton" alt="Convocatoria Juvenil 2025">
+    </a>
+  </div>
+
+</div>
+
+<!-- FOOTER COMPLETO -->
+<footer id="footer-content">
+
+<h3 style="font-size:15px;" id="footer-title">© 2023 – 2026 | Explorando Museos y Arte Latinoamericano</h3>
+
+<p style="max-width:750px;margin:auto;" id="footer-description">
+Proyecto educativo y cultural <strong id="footer-strong1">creado por Yobana Orozco Benavides</strong>.
+Iniciado en 2023 como un trabajo universitario bajo el nombre
+<em id="footer-em1">Explorando Museos Nacionales de Colombia</em>.
+Desde 2025, el proyecto continúa y se consolida a través de la
+<strong id="footer-strong2">Fundación Artes Multicap</strong> como
+<strong id="footer-strong3">Explorando Museos y Arte Latinoamericano</strong>.
+</p>
+
+<div style="margin-top:24px;">
+<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.es" target="_blank">
+<img src="https://co.creativecommons.net/wp-content/uploads/sites/27/2008/02/by-nc.png" style="max-width:180px;" alt="Licencia Creative Commons">
+</a>
+
+<p style="font-size:12px;" id="license-text">
+Licencia Creative Commons Atribución–No Comercial 4.0 Internacional (CC BY-NC 4.0).
+Se permite la consulta, descarga y difusión con reconocimiento de autoría, sin fines comerciales.
+</p>
+</div>
+
+<p style="margin-top:15px;" id="author-bio">
+🌐 Bio autora:
+<a href="https://yobanaorozcoartista.bio.link/" target="_blank" style="color:#00e6b8;">
+yobanaorozcoartista.bio.link
+</a>
+</p>
+
+<div style="margin-top:20px;font-size:13px;">
+<strong>Depósito Digital Legal:</strong> DD-034370 — Biblioteca Nacional de Colombia
+</div>
+
+<!-- LOGOS COMPLETOS -->
+<div style="margin-top:20px;display:flex;flex-wrap:wrap;justify-content:center;gap:15px;align-items:center;">
+
+<img src="https://repository.ut.edu.co/assets/custom/images/logo-riut.png" style="height:48px;" alt="RIUT">
+<img src="https://revistas.uece.br/public/site/images/padua/google.png" style="height:48px;" alt="Google Scholar">
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Logo_StuDocu_Wikipedia.png" style="height:48px;" alt="StuDocu">
+<img src="https://segib.org/wp-content/uploads/2022/12/IberculturaViva-1-2048x684.jpg" style="height:48px;" alt="Ibercultura Viva">
+<img src="https://img.freepik.com/premium-vector/academia-logo_1088810-103.jpg" style="height:48px;" alt="Academia">
+
+<img src="https://i.postimg.cc/ZKWXhNwT/descarga-1.png" style="height:60px;" alt="Logo 1">
+<img src="https://i.postimg.cc/Vvf1RNwJ/descarga.png" style="height:60px;" alt="Logo 2">
+<img src="https://i.postimg.cc/0ywg7SSt/descarga-3.jpg" style="height:60px;" alt="Logo 3">
+<img src="https://i.postimg.cc/BnqYn1gL/doi-1.png" style="height:60px;" alt="DOI">
+<img src="https://i.postimg.cc/PxG1Ngj3/descarga-2.png" style="height:60px;" alt="Logo 4">
+<img src="https://i.postimg.cc/tC77Qr0Y/descarga-3.png" style="height:60px;" alt="Logo 5">
+<img src="https://i.postimg.cc/pVsy6w6w/descarga-4.png" style="height:60px;" alt="Logo 6">
+<img src="https://i.postimg.cc/5tkb3J0g/images.png" style="height:60px;" alt="Logo 7">
+<img src="https://i.postimg.cc/85W96grj/Captura-de-pantalla-2025-07-21-231633.png" style="height:60px;" alt="Logo 8">
+<img src="https://i.postimg.cc/wTWf3jbw/webofscience-logo-tm-rgb-color-0.jpg" style="height:60px;" alt="Web of Science">
+<img src="https://i.postimg.cc/TPxD6rqF/descarga-5.png" style="height:60px;" alt="Logo 9">
+
+</div>
+
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+// Textos originales en español
+const originalTexts = {
+  'title': 'Convocatorias | Revista Explorando Arte y Cultura de Latinoamérica',
+  'btn-2026': 'Convocatorias 2026 🔽',
+  'btn-2025': 'Convocatorias 2025 🔽',
+  'footer-title': '© 2023 – 2026 | Explorando Museos y Arte Latinoamericano',
+  'footer-description': 'Proyecto educativo y cultural <strong>creado por Yobana Orozco Benavides</strong>. Iniciado en 2023 como un trabajo universitario bajo el nombre <em>Explorando Museos Nacionales de Colombia</em>. Desde 2025, el proyecto continúa y se consolida a través de la <strong>Fundación Artes Multicap</strong> como <strong>Explorando Museos y Arte Latinoamericano</strong>.',
+  'license-text': 'Licencia Creative Commons Atribución–No Comercial 4.0 Internacional (CC BY-NC 4.0). Se permite la consulta, descarga y difusión con reconocimiento de autoría, sin fines comerciales.',
+  'author-bio': '🌐 Bio autora:',
+  'footer-strong1': 'creado por Yobana Orozco Benavides',
+  'footer-em1': 'Explorando Museos Nacionales de Colombia',
+  'footer-strong2': 'Fundación Artes Multicap',
+  'footer-strong3': 'Explorando Museos y Arte Latinoamericano'
+};
+
+// Traducciones predefinidas
+const translations = {
+  'es': {
+    'title': 'Convocatorias | Revista Explorando Arte y Cultura de Latinoamérica',
+    'btn-2026': 'Convocatorias 2026 🔽',
+    'btn-2025': 'Convocatorias 2025 🔽',
+    'footer-title': '© 2023 – 2026 | Explorando Museos y Arte Latinoamericano',
+    'footer-description': 'Proyecto educativo y cultural <strong>creado por Yobana Orozco Benavides</strong>. Iniciado en 2023 como un trabajo universitario bajo el nombre <em>Explorando Museos Nacionales de Colombia</em>. Desde 2025, el proyecto continúa y se consolida a través de la <strong>Fundación Artes Multicap</strong> como <strong>Explorando Museos y Arte Latinoamericano</strong>.',
+    'license-text': 'Licencia Creative Commons Atribución–No Comercial 4.0 Internacional (CC BY-NC 4.0). Se permite la consulta, descarga y difusión con reconocimiento de autoría, sin fines comerciales.',
+    'author-bio': '🌐 Bio autora:'
+  },
+  'en': {
+    'title': 'Calls for Submissions | Exploring Latin American Art and Culture Magazine',
+    'btn-2026': 'Calls 2026 🔽',
+    'btn-2025': 'Calls 2025 🔽',
+    'footer-title': '© 2023 – 2026 | Exploring Museums and Latin American Art',
+    'footer-description': 'Educational and cultural project <strong>created by Yobana Orozco Benavides</strong>. Started in 2023 as a university work under the name <em>Exploring National Museums of Colombia</em>. Since 2025, the project continues and consolidates through the <strong>Artes Multicap Foundation</strong> as <strong>Exploring Museums and Latin American Art</strong>.',
+    'license-text': 'Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0). Consultation, download and dissemination are allowed with acknowledgment of authorship, for non-commercial purposes.',
+    'author-bio': '🌐 Author bio:'
+  },
+  'fr': {
+    'title': 'Appels à contributions | Revue Explorant l\'Art et la Culture d\'Amérique Latine',
+    'btn-2026': 'Appels 2026 🔽',
+    'btn-2025': 'Appels 2025 🔽',
+    'footer-title': '© 2023 – 2026 | Explorant les Musées et l\'Art Latino-américain',
+    'footer-description': 'Projet éducatif et culturel <strong>créé par Yobana Orozco Benavides</strong>. Commencé en 2023 comme un travail universitaire sous le nom <em>Explorant les Musées Nationaux de Colombie</em>. Depuis 2025, le projet continue et se consolide à travers la <strong>Fondation Artes Multicap</strong> en tant que <strong>Explorant les Musées et l\'Art Latino-américain</strong>.',
+    'license-text': 'Licence Creative Commons Attribution - Pas d\'Utilisation Commerciale 4.0 International (CC BY-NC 4.0). Consultation, téléchargement et diffusion autorisés avec mention de paternité, à des fins non commerciales.',
+    'author-bio': '🌐 Bio de l\'auteure :'
+  },
+  'pt': {
+    'title': 'Chamadas | Revista Explorando Arte e Cultura da América Latina',
+    'btn-2026': 'Chamadas 2026 🔽',
+    'btn-2025': 'Chamadas 2025 🔽',
+    'footer-title': '© 2023 – 2026 | Explorando Museus e Arte Latino-americana',
+    'footer-description': 'Projeto educativo e cultural <strong>criado por Yobana Orozco Benavides</strong>. Iniciado em 2023 como um trabalho universitário sob o nome <em>Explorando Museus Nacionais da Colômbia</em>. Desde 2025, o projeto continua e se consolida através da <strong>Fundação Artes Multicap</strong> como <strong>Explorando Museus e Arte Latino-americana</strong>.',
+    'license-text': 'Licença Creative Commons Atribuição-NãoComercial 4.0 Internacional (CC BY-NC 4.0). Permite-se consulta, download e difusão com reconhecimento de autoria, sem fins comerciais.',
+    'author-bio': '🌐 Bio da autora:'
+  }
+};
+
+// Función para actualizar botón activo
+function setActiveFlag(language) {
+  // Remover clase active de todas las banderas
+  document.querySelectorAll('#flags button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  
+  // Agregar clase active a la bandera correspondiente
+  const flagId = `flag-${language}`;
+  const flagButton = document.getElementById(flagId);
+  if (flagButton) {
+    flagButton.classList.add('active');
+  }
+}
+
+// Función para traducir la página
+function translatePage(language) {
+  // Actualizar botón activo
+  setActiveFlag(language);
+  
+  // Actualizar título de la página
+  document.title = translations[language]['title'];
+  
+  // Traducir botones
+  document.getElementById('btn-2026').textContent = translations[language]['btn-2026'];
+  document.getElementById('btn-2025').textContent = translations[language]['btn-2025'];
+  
+  // Traducir elementos del footer
+  document.getElementById('footer-title').innerHTML = translations[language]['footer-title'];
+  document.getElementById('footer-description').innerHTML = translations[language]['footer-description'];
+  document.getElementById('license-text').textContent = translations[language]['license-text'];
+  document.getElementById('author-bio').innerHTML = translations[language]['author-bio'];
+  
+  // Guardar preferencia de idioma
+  localStorage.setItem('preferred-language', language);
+}
+
+// Funciones específicas para cada idioma
+function translateToSpanish() {
+  translatePage('es');
+}
+
+function translateToEnglish() {
+  translatePage('en');
+}
+
+function translateToFrench() {
+  translatePage('fr');
+}
+
+function translateToPortuguese() {
+  translatePage('pt');
+}
+
+// Funciones para mostrar/ocultar convocatorias
+function toggle2025() {
+  document.getElementById("conv2026").style.display = "none";
+  const a = document.getElementById("conv2025");
+  a.style.display = (a.style.display === "block") ? "none" : "block";
+}
+
+function toggle2026() {
+  document.getElementById("conv2025").style.display = "none";
+  const b = document.getElementById("conv2026");
+  b.style.display = (b.style.display === "block") ? "none" : "block";
+}
+
+// Cargar idioma preferido al iniciar
+document.addEventListener('DOMContentLoaded', function() {
+  const savedLanguage = localStorage.getItem('preferred-language') || 'es';
+  translatePage(savedLanguage);
+});
+</script>
+
+</body>
+</html>
