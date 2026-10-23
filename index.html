@@ -97,6 +97,40 @@ header img { max-width: 550px; width: 100%; border-radius: 15px; box-shadow: 0 0
   font-size: 12px;
 }
 
+/* BOTÓN APLAZADO: imagen suavizada + badge dorado */
+.imagen-boton.aplazada img {
+  filter: grayscale(40%) brightness(0.75);
+  transition: filter 0.3s ease;
+}
+.imagen-boton.aplazada:hover img {
+  filter: grayscale(15%) brightness(0.9);
+}
+
+.badge-aplazada {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(200, 140, 0, 0.95);
+  color: #fff;
+  padding: 7px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  z-index: 5;
+  border: 2px solid #fff;
+  box-shadow: 0 0 18px rgba(255, 190, 0, 0.75), 0 0 35px rgba(255, 190, 0, 0.35);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.badge-aplazada::before {
+  content: '⏳ ';
+  font-size: 12px;
+}
+
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 @media (max-width: 768px) {
@@ -108,11 +142,13 @@ header img { max-width: 550px; width: 100%; border-radius: 15px; box-shadow: 0 0
   #flags img { width: 30px; height: 22px; }
   #flags .flag-label { font-size: 10px; }
   .badge-cerrada { font-size: 11px; padding: 5px 14px; letter-spacing: 2px; }
+  .badge-aplazada { font-size: 11px; padding: 5px 14px; letter-spacing: 1.5px; }
 }
 
 @media (max-width: 480px) {
   .imagen-boton { flex: 1 1 100%; max-width: 100%; }
   .badge-cerrada { font-size: 10px; padding: 5px 12px; letter-spacing: 1.5px; }
+  .badge-aplazada { font-size: 10px; padding: 5px 12px; letter-spacing: 1px; }
 }
 
 footer { background-color: #000000; padding: 40px 20px; color: #f1f1f1; text-align: center; border-top: 3px solid #ffffff; font-size: 11px; line-height: 1.6; }
@@ -164,12 +200,15 @@ footer { background-color: #000000; padding: 40px 20px; color: #f1f1f1; text-ali
   <!-- 2026 -->
   <div id="conv2026" class="contenedor-convocatorias" style="display:flex;">
 
-    <!-- ACTIVA: Convocatoria 3 Jóvenes Creadores -->
-    <a href="https://convocatoria3jovenescreadores.netlify.app/" target="_blank" class="imagen-boton">
-      <img src="https://i.postimg.cc/hP42spLh/Proyecto-nuevo-(12)3.jpg" alt="Convocatoria 3 Jóvenes Creadores 2026">
+    <!-- APLAZADA: Convocatoria 3 Jóvenes Creadores de Latinoamérica -->
+    <a href="https://convocatoria3jovenescreadores.netlify.app/" target="_blank" class="imagen-boton aplazada">
+      <span class="badge-aplazada">Aplazada para 2027</span>
+      <img src="https://i.postimg.cc/hP42spLh/Proyecto-nuevo-(12)3.jpg" alt="Convocatoria 3 Jóvenes Creadores de Latinoamérica – Aplazada para 2027">
     </a>
 
-    <a href="https://convocatoria3explorandoarteycultura.netlify.app/" target="_blank" class="imagen-boton">
+    <!-- CERRADA: Convocatoria N.º 3 Revista Explorando Arte y Cultura -->
+    <a href="https://convocatoria3explorandoarteycultura.netlify.app/" target="_blank" class="imagen-boton cerrada">
+      <span class="badge-cerrada">Cerrada</span>
       <img src="https://i.postimg.cc/Z0kzr87z/Gemini-Generated-Image-37hnl437hnl437hn-VV.jpg" alt="Convocatoria N.º 3 – Horizontes que nos unen">
     </a>
 
@@ -267,6 +306,7 @@ const translations = {
     'btn-2026':'Convocatorias 2026 🔽',
     'btn-2025':'Convocatorias 2025 🔽',
     'badge-cerrada':'Cerrada',
+    'badge-aplazada':'Aplazada para 2027',
     'footer-title':'© 2023 – 2026 | Explorando Museos y Arte Latinoamericano',
     'footer-description':'Proyecto educativo y cultural <strong>creado por Yobana Orozco Benavides</strong>. Iniciado en 2023 como un trabajo universitario bajo el nombre <em>Explorando Museos Nacionales de Colombia</em>. Desde 2025, el proyecto continúa y se consolida a través de la <strong>Fundación Artes Multicap</strong> como <strong>Explorando Museos y Arte Latinoamericano</strong>.',
     'license-text':'Licencia Creative Commons Atribución–No Comercial 4.0 Internacional (CC BY-NC 4.0). Se permite la consulta, descarga y difusión con reconocimiento de autoría, sin fines comerciales.',
@@ -278,6 +318,7 @@ const translations = {
     'btn-2026':'Calls 2026 🔽',
     'btn-2025':'Calls 2025 🔽',
     'badge-cerrada':'Closed',
+    'badge-aplazada':'Postponed to 2027',
     'footer-title':'© 2023 – 2026 | Exploring Museums and Latin American Art',
     'footer-description':'Educational and cultural project <strong>created by Yobana Orozco Benavides</strong>. Started in 2023 as a university work under the name <em>Exploring National Museums of Colombia</em>. Since 2025, the project continues and consolidates through the <strong>Artes Multicap Foundation</strong> as <strong>Exploring Museums and Latin American Art</strong>.',
     'license-text':'Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0). Consultation, download and dissemination are allowed with acknowledgment of authorship, for non-commercial purposes.',
@@ -289,6 +330,7 @@ const translations = {
     'btn-2026':'Appels 2026 🔽',
     'btn-2025':'Appels 2025 🔽',
     'badge-cerrada':'Fermée',
+    'badge-aplazada':'Reportée à 2027',
     'footer-title':'© 2023 – 2026 | Explorant les Musées et l\'Art Latino-américain',
     'footer-description':'Projet éducatif et culturel <strong>créé par Yobana Orozco Benavides</strong>. Commencé en 2023 comme un travail universitaire sous le nom <em>Explorant les Musées Nationaux de Colombie</em>. Depuis 2025, le projet continue et se consolide à travers la <strong>Fondation Artes Multicap</strong> en tant que <strong>Explorant les Musées et l\'Art Latino-américain</strong>.',
     'license-text':'Licence Creative Commons Attribution - Pas d\'Utilisation Commerciale 4.0 International (CC BY-NC 4.0). Consultation, téléchargement et diffusion autorisés avec mention de paternité, à des fins non commerciales.',
@@ -300,6 +342,7 @@ const translations = {
     'btn-2026':'Chamadas 2026 🔽',
     'btn-2025':'Chamadas 2025 🔽',
     'badge-cerrada':'Fechada',
+    'badge-aplazada':'Adiada para 2027',
     'footer-title':'© 2023 – 2026 | Explorando Museus e Arte Latino-americana',
     'footer-description':'Projeto educativo e cultural <strong>criado por Yobana Orozco Benavides</strong>. Iniciado em 2023 como um trabalho universitário sob o nome <em>Explorando Museus Nacionais da Colômbia</em>. Desde 2025, o projeto continua e se consolida através da <strong>Fundação Artes Multicap</strong> como <strong>Explorando Museus e Arte Latino-americana</strong>.',
     'license-text':'Licença Creative Commons Atribuição-NãoComercial 4.0 Internacional (CC BY-NC 4.0). Permite-se consulta, download e difusão com reconhecimento de autoria, sem fins comerciais.',
@@ -327,6 +370,11 @@ function translatePage(language) {
   // Traducir todos los badges "Cerrada"
   document.querySelectorAll('.badge-cerrada').forEach(el => {
     el.textContent = translations[language]['badge-cerrada'];
+  });
+
+  // Traducir los badges "Aplazada"
+  document.querySelectorAll('.badge-aplazada').forEach(el => {
+    el.textContent = translations[language]['badge-aplazada'];
   });
 
   localStorage.setItem('preferred-language', language);
